@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html land="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Queue</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="../logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <h1>Data structure</h1>
+        </a>
+    </header>
+
+    <div class="container">
+        <table class="content-table table" id="table-result">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons">
+        <p><input id='number' type="number" min=-100 max=100 step=1 value=0 name="element" required></p>
+        <button onclick="addElement()">Add element</button>
+        <button onclick="deleteElement()">Delete element</button>
+    </div>
+
+    <script src="queue.js"></script>
+</body>
+
+</html>

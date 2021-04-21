@@ -1,0 +1,30 @@
+body {
+    user-select: none;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+    background: #F1DCC9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+span {
+    margin: 1em;
+    padding: 1em;
+    border: 0.3em solid #F1DCC9;
+    border-radius: 1em;
+    background-color: #42313A;
+}
+
+button {
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 0.3em solid #F1DCC9;
+    background-color: #6C2D2C;
+    color: #F1DCC9;
+}
+
+button:active {
+    outline: none;
+}

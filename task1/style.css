@@ -1,0 +1,222 @@
+body {
+    background-color: #FFCCBB;
+    font-family: "Arial", sans-serif;
+    font-size: 100%;
+}
+
+.menu__item {
+    width: 25%;
+}
+
+.menu {
+    flex-wrap: wrap;
+    display: flex;
+    background-color: #6EB5C0;
+    border-radius: 5em;
+    margin: 5em;
+}
+
+.menu__item {
+    width: 25%;
+    text-align: center;
+}
+
+.menu a {
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    font-size: 1.8em;
+    color: #E2E8E4;
+    transition: .4s linear;
+}
+
+.menu:hover {
+    background-color: #88b9c0;
+}
+
+.content__item {
+    margin: 5em;
+    padding: 2em;
+    background-color: #6EB5C0;
+    border-radius: 5em;
+}
+
+.content__item:hover {
+    background-color: #88b9c0;
+}
+
+.content__item p {
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    color: #E2E8E4;
+}
+
+.text {
+    margin-top: 2em;
+    line-height: 2em;
+}
+
+.title {
+    letter-spacing: 0.1em;
+    font-size: 1.8em;
+    color: #E2E8E4;
+    border-bottom: 0.09em solid #006C84;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+img.picture {
+    border-radius: 5em;
+}
+
+.catalog {
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 2em;
+    width: 25%;
+}
+
+.catalog__col {
+    width: 25%;
+    text-align: center;
+}
+
+.catalog a {
+    text-decoration: none;
+}
+
+.info-person {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    justify-content: flex-start;
+}
+
+.info-person__item {
+    width: 33.33333%;
+}
+
+textarea {
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 2em;
+    width: 80%;
+    height: 10em;
+    background-color: #88b9c0;
+    border: 0.09em solid #006C84;
+    border-radius: 5em;
+    font-size: 1.6em;
+    letter-spacing: 0.1em;
+    color: #E2E8E4;
+}
+
+textarea:focus {
+    outline: none;
+    font-size: 1.6em;
+    color: #E2E8E4;
+    background-color: #6EB5C0;
+}
+
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="radio"]:checked+label,
+input[type="radio"]:not(:checked)+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked+label:before,
+input[type="radio"]:not(:checked)+label:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 15px;
+    height: 15px;
+    border: 0.09em solid #E2E8E4;
+    background-color: #E2E8E4;
+    border-radius: 100%;
+}
+
+input[type="radio"]:checked+label:before {
+    border: 0.09em solid #006C84;
+}
+
+input[type="radio"]:checked+label:after,
+input[type="radio"]:not(:checked)+label:after {
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease;
+    left: 4px;
+    top: 4px;
+    width: 11px;
+    height: 11px;
+    border-radius: 100%;
+    background-color: #006C84;
+}
+
+input[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+}
+
+.form_radio input[type=radio] {
+    display: none;
+}
+
+input[type="number"] {
+    border: none;
+    border-bottom: 0.09em solid #006C84;
+    background-color: #88b9c0;
+    font-size: 1em;
+    color: #E2E8E4;
+}
+
+input[type="number"]:focus {
+    background-color: #6EB5C0;
+}
+
+button {
+    background-color: #88b9c0;
+    font-size: 1.8em;
+    color: #E2E8E4;
+    border: 0.09em solid #006C84;
+    border-radius: 5em;
+    padding: 0.5em 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+button:hover {
+    background-color: #6EB5C0;
+}
+
+button:active {
+    outline: none;
+}
+
+.contact {
+    margin: 5em;
+    padding: 2em;
+    line-height: 2em;
+    background-color: #6EB5C0;
+    border-radius: 5em;
+}
+
+.contact:hover {
+    background-color: #88b9c0;
+}
+
+.contact p {
+    letter-spacing: 0.1em;
+    font-size: 1.3em;
+    color: #E2E8E4;
+}

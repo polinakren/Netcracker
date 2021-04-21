@@ -1,0 +1,99 @@
+body {
+    user-select: none;
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+    background: #C29545;
+}
+
+header {
+    text-align: center;
+    height: 3em;
+    padding: 1em;
+    background: #882426;
+    margin-top: 2em;
+    border-radius: 1em;
+    box-shadow: 0.4em 0.4em 5px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    color: #CDBEA7;
+    letter-spacing: 0.1em;
+    display: inline-block;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 4em 0;
+    font-size: 1.1em;
+    min-width: 600px;
+    max-height: 600px;
+    border-radius: 1em 1em 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 2em rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
+.content-table thead tr {
+    background-color: #882426;
+    color: #CDBEA7;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 1em 1.5em;
+}
+
+.content-table tbody tr {
+    padding: 1em 2em;
+    border-bottom: 0.09em solid #323030;
+    font-weight: bold;
+    font-size: 1.1em;
+    background-color: #CDBEA7;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #323030;
+}
+
+th {
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+button {
+    width: 25%;
+    background-color: #882426;
+    font-size: 1.1em;
+    color: #CDBEA7;
+    border: 0.09em solid #882426;
+    border-radius: 1em;
+    padding: 0.5em 2em;
+}
+
+button:hover,
+input[type="number"]:hover {
+    background-color: #88383a;
+}
+
+button:active,
+button:focus,
+input[type="number"] {
+    outline: none;
+}
+
+input[type="number"] {
+    padding: 0.5em;
+    border-radius: 1em;
+    background-color: #882426;
+    border: 0.09em solid #882426;
+    font-size: 1.1em;
+    color: #CDBEA7;
+    text-align: center;
+}
