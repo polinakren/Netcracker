@@ -1,0 +1,5 @@
+<div *ngIf="data.student">
+  <span>Вы уверены, что ходите удалить {{data.student.firstName}} {{data.student.surname}} из таблицы?</span><br>
+  <button mat-raised-button (click)="deleteStudent(data.student); close()">Да</button>
+  <button mat-raised-button (click)="close()">Нет</button>
+</div>
