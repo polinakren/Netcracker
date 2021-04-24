@@ -30,51 +30,33 @@
   <tbody>
   <tr *ngFor="let student of Students">
     <td
-      [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+      [class.found-student] = "checkData(student, studentName.value)"
       [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
       [class.selected] = "student === selectedStudent"
       (click)="selectedStudent = student">
 
       {{student.id}}</td>
-    <td  [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+    <td  [class.found-student] = "checkData(student, studentName.value)"
          [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
          [class.selected] = "student === selectedStudent"
          (click)="selectedStudent = student">
       {{student.surname}}</td>
-    <td [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+    <td [class.found-student] = "checkData(student, studentName.value)"
         [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
         [class.selected] = "student === selectedStudent"
         (click)="selectedStudent = student">
       {{student.firstName}}</td>
-    <td [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+    <td [class.found-student] = "checkData(student, studentName.value)"
         [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
         [class.selected] = "student === selectedStudent"
         (click)="selectedStudent = student">
       {{student.secondName}}</td>
-    <td [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+    <td [class.found-student] = "checkData(student, studentName.value)"
         [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
         [class.selected] = "student === selectedStudent"
         (click)="selectedStudent = student">
       {{student.date.toDateString()}}</td>
-    <td [class.found-student] = "student.surname === studentName.value ||
-          student.firstName === studentName.value || student.firstName + ' '
-          + student.surname === studentName.value || student.surname + ' ' +
-          student.firstName === studentName.value "
+    <td [class.found-student] = "checkData(student, studentName.value)"
         [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
         [class.selected] = "student === selectedStudent"
         (click)="selectedStudent = student">
@@ -90,7 +72,7 @@
       <input #dateFilter type="date">
     </label>
     <button
-      (click)="refreshData(); filterStudentsDate(dateFilter.valueAsDate)"
+      (click)="filterStudentsDate(dateFilter.valueAsDate)"
     >Фильтровать</button>
   </div>
   <div class = "filter_item">
@@ -102,7 +84,7 @@
     </div>
     <div>
       <button
-        (click)="refreshData(); filterStudentsMark(markFilter.value)"
+        (click)="filterStudentsMark(markFilter.value) "
       >Фильтровать</button>
     </div>
   </div>

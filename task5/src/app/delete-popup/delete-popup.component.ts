@@ -12,6 +12,7 @@ import { Student } from "../student";
 })
 
 export class DeletePopupComponent implements OnInit {
+  // tslint:disable-next-line:no-any
   constructor(private matDialogRef: MatDialogRef<DeletePopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit(): void {
