@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from "@angular/core";
 import { MatDialog } from "@angular/material";
-import { DeletePopupComponent } from "./delete-popup/delete-popup.component";
 import { STUDENTS } from "./mock-students";
 import { Student } from "./student";
 
@@ -15,6 +14,8 @@ export class AppComponent {
   checkAvgMark = false;
   sorted: boolean[] = [false, false, false, false, false, false];
   selectedStudent: Student;
+  isPopupVisible: boolean = false;
+  idDeleteStudent: number = 0;
 
   constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
 
@@ -79,15 +80,6 @@ export class AppComponent {
   }
   update(): void {}
 
-  openDeleteDialog(student: Student): void {
-    if (student) {
-      const dialogRef = this.dialog.open(DeletePopupComponent, {width: "300px", data: {student: student}});
-
-      dialogRef.afterClosed().subscribe(() => {
-        this.refreshData();
-      });
-    }
-  }
   checkData(student: Student, studentName: string): boolean {
       if (student.surname === studentName ||
         student.firstName === studentName || student.firstName + " "
@@ -96,5 +88,18 @@ export class AppComponent {
         return true;
       }
     return false;
+  }
+
+  closePopup(isDelete: boolean): void {
+    this.isPopupVisible = false;
+    if (isDelete) {
+      this.Students = this.Students.filter(s => s.id !== this.idDeleteStudent);
+    }
+    this.idDeleteStudent = 0;
+  }
+
+  public deleteStudent(id: number): void {
+    this.isPopupVisible = true;
+    this.idDeleteStudent = id;
   }
 }

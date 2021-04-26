@@ -92,8 +92,18 @@
     <button (click)="refreshData()">Убрать фильтры</button>
   </div>
   <div class = "filter_item">
-    <button mat-raised-button (click)="openDeleteDialog(selectedStudent)" class = "button_delete">
+    <button class="delete" (click)="deleteStudent(selectedStudent.id)">
       Удалить выбранного студента</button>
+  </div>
+
+  <div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-message">
+      <span>Вы уверены, что ходите удалить {{selectedStudent.firstName}} {{selectedStudent.surname}} из таблицы?</span>
+      <div class="popup-buttons">
+        <button (click)="closePopup(true)">Да</button>
+        <button (click)="closePopup(false)">Нет</button>
+      </div>
+    </div>
   </div>
 </div>
 </body>
