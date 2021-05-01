@@ -1,0 +1,93 @@
+.form-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(1, 1, 1, 0.725);
+    z-index: 1;
+}
+
+.action-form {
+    width: 400px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    background-color: #66A5AD;
+    margin: 4em auto;
+    padding: 30px;
+}
+
+input[type="text"]{
+  font-size: 0.7em;
+  color: #003B46;
+  padding: 0.5em 0 0.5em 1em;
+  border: 1px solid #cecece;
+  background: #F6F6f6;
+  border-radius: 8px;
+  outline: none;
+}
+
+.fullName {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.student-name,
+.student-patronymic,
+.student-surname,
+.student-birthDate,
+.student-averageRating {
+    margin: 10px;
+}
+
+
+.action{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.action_item{
+  width: 50%;
+}
+
+button {
+    cursor: pointer;
+    background-color: #07575B;
+    font-size: 1.1em;
+    color: #CDBEA7;
+    border: 0.09em solid #07575B;
+    border-radius: 1em;
+    padding: 0.5em 2em;
+    margin: 10px 10px 0;
+}
+
+input.ng-touched.ng-invalid {
+    border: solid #f8757591 2px;
+}
+
+.mistake-description {
+    font-size: 12px;
+    margin-bottom: -15px;
+    color: red;
+}
+
+.student-name .mistake-description {
+    margin-left: 34px;
+}
+
+.student-patronymic .mistake-description {
+    margin-left: 72px;
+}
+
+.student-surname .mistake-description {
+    margin-left: 71px;
+}
+
+.student-birthDate .mistake-description {
+    margin-left: 116px;
+}

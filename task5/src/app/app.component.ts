@@ -1,105 +1,29 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from "@angular/core";
-import { MatDialog } from "@angular/material";
-import { STUDENTS } from "./mock-students";
-import { Student } from "./student";
+import { Component } from "@angular/core";
+
+export interface IStudent {
+  readonly id: number;
+  firstName: string;
+  secondName: string;
+  surname: string;
+  date: Date;
+  avgMark: number;
+}
 
 @Component({
   selector: "app-root",
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
+
 export class AppComponent {
-  Students: Student[] = STUDENTS.slice();
-  checkAvgMark = false;
-  sorted: boolean[] = [false, false, false, false, false, false];
-  selectedStudent: Student;
-  isPopupVisible: boolean = false;
-  idDeleteStudent: number = 0;
 
-  constructor(public dialog: MatDialog, private cdr: ChangeDetectorRef) {}
-
-  filterStudentsDate(date: Date): void {
-    for (let i = this.Students.length - 1; i >= 0; i--) {
-      if (this.Students[i].date <= date) {
-        this.Students.splice(i, 1);
-      }
-    }
-  }
-
-  filterStudentsMark(mark: string): void {
-    for (let i = this.Students.length - 1; i >= 0; i--) {
-      if (this.Students[i].avgMark <= +mark) {
-        this.Students.splice(i, 1);
-      }
-    }
-  }
-
-  refreshData(): void {
-    this.Students = STUDENTS.slice();
-    this.cdr.detectChanges();
-  }
-
-  sortData(column: string): void {
-    if (column === "id") {
-      (this.sorted[0]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.id - n2.id) :
-        this.Students = this.Students.sort((n1, n2) => n2.id - n1.id);
-      this.sorted[0] = !this.sorted[0];
-    }
-    if (column === "surname") {
-      (this.sorted[1]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.surname > n2.surname ? 1 : -1) :
-        this.Students = this.Students.sort((n1, n2) => n2.surname > n1.surname ? 1 : -1);
-      this.sorted[1] = !this.sorted[1];
-    }
-    if (column === "firstName") {
-      (this.sorted[2]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.firstName > n2.firstName ? 1 : -1) :
-        this.Students = this.Students.sort((n1, n2) => n2.firstName > n1.firstName ? 1 : -1);
-      this.sorted[2] = !this.sorted[2];
-    }
-    if (column === "secondName") {
-      (this.sorted[3]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.secondName > n2.secondName ? 1 : -1) :
-        this.Students = this.Students.sort((n1, n2) => n2.secondName > n1.secondName ? 1 : -1);
-      this.sorted[3] = !this.sorted[3];
-    }
-    if (column === "date") {
-      (this.sorted[4]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.date > n2.date ? 1 : -1) :
-        this.Students = this.Students.sort((n1, n2) => n2.date > n1.date ? 1 : -1);
-      this.sorted[4] = !this.sorted[4];
-    }
-    if (column === "avgMark") {
-      (this.sorted[5]) ?
-        this.Students = this.Students.sort((n1, n2) => n1.avgMark - n2.avgMark) :
-        this.Students = this.Students.sort((n1, n2) => n2.avgMark - n1.avgMark);
-      this.sorted[5] = !this.sorted[5];
-    }
-  }
-  update(): void {}
-
-  checkData(student: Student, studentName: string): boolean {
-      if (student.surname === studentName ||
-        student.firstName === studentName || student.firstName + " "
-      + student.surname === studentName || student.surname + " " +
-        student.firstName === studentName) {
-        return true;
-      }
-    return false;
-  }
-
-  closePopup(isDelete: boolean): void {
-    this.isPopupVisible = false;
-    if (isDelete) {
-      this.Students = this.Students.filter(s => s.id !== this.idDeleteStudent);
-    }
-    this.idDeleteStudent = 0;
-  }
-
-  public deleteStudent(id: number): void {
-    this.isPopupVisible = true;
-    this.idDeleteStudent = id;
-  }
+  public students: IStudent[] = [
+    {id: 1, firstName: "Николай", secondName: "Иванович", surname: "Лобачевский", date: new Date("11.20.1792"), avgMark: 2.5},
+    {id: 2, firstName: "Пафнутий", secondName: "Львович", surname: "Чебышев",   date: new Date("05.16.1821"), avgMark: 4},
+    {id: 3, firstName: "Александр", secondName: "Михайлович", surname: "Ляпунов",   date: new Date("05.25.1857"), avgMark: 3.5},
+    {id: 4, firstName: "Андрей", secondName: "Николаевич", surname: "Колмогоров",   date: new Date("04.12.1903"), avgMark: 4.5},
+    {id: 5, firstName: "Борис", secondName: "Николаевич", surname: "Делоне",   date: new Date("03.15.1890"), avgMark: 3},
+    {id: 6, firstName: "Борис", secondName: "Григорьевич", surname: "Галеркин",   date: new Date("04.03.1871"), avgMark: 2.8},
+    {id: 7, firstName: "Михаил", secondName: "Леонидович", surname: "Громов",   date: new Date("12.23.1943"), avgMark: 3.3},
+  ];
 }

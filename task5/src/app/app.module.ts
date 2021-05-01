@@ -1,23 +1,24 @@
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
-import { MatDialogModule } from "@angular/material";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 import { AppComponent } from "./app.component";
+import { FormComponent } from "./form/form.component";
+import { StudentsComponent } from "./students/students.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    StudentsComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
+  exports: [FormComponent],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [
-  ]
+  bootstrap: [AppComponent, FormComponent]
 })
 export class AppModule { }
