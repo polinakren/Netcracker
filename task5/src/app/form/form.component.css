@@ -37,10 +37,10 @@ input[type="text"]{
 }
 
 .student-name,
-.student-patronymic,
+.student-secondName,
 .student-surname,
 .student-birthDate,
-.student-averageRating {
+.student-avgMark {
     margin: 10px;
 }
 
@@ -80,7 +80,7 @@ input.ng-touched.ng-invalid {
     margin-left: 34px;
 }
 
-.student-patronymic .mistake-description {
+.student-secondName .mistake-description {
     margin-left: 72px;
 }
 

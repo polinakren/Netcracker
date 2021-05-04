@@ -1,8 +1,9 @@
-import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { IStudent } from "../app.component";
 
 @Component({
   selector: "app-students",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: "./students.component.html",
   styleUrls: ["./students.component.css"]
 })
@@ -20,18 +21,14 @@ export class StudentsComponent {
     avgMark: 0
   };
   searchString: string = "";
-  filterBirthDateLeft: Date = new Date("1970-01-01");
-  filterBirthDateRight: Date = new Date("1970-01-01");
-  filterAverageRatingLeft: number = 0;
-  filterAverageRatingRight: number = 0;
-  readonly lowRating: number = 3;
-  isStudentsHighlighted: boolean = true;
   isPopupVisible: boolean = false;
   idDeleteStudent: number = 0;
   isAddEditForm: boolean = false;
   selectedStudent: IStudent;
   sorted: boolean[] = [false, false, false, false, false, false];
   checkAvgMark: boolean;
+  isPopupErrorVisible: boolean = false;
+  flagSelected: boolean = false;
 
   public deleteStudent(id: number): void {
     this.isPopupVisible = true;
@@ -39,8 +36,15 @@ export class StudentsComponent {
   }
 
   public editStudent(student: IStudent): void {
-    this.student = student;
-    this.isAddEditForm = true;
+    if (this.flagSelected === false) {
+      this.isPopupErrorVisible = true;
+    } else {
+      this.student = student;
+      this.isAddEditForm = true;
+    }
+  }
+  public  checkSelected(): void {
+    this.flagSelected = true;
   }
 
   public addNewStudent(): void {
@@ -116,6 +120,9 @@ export class StudentsComponent {
     }
     this.idDeleteStudent = 0;
   }
+  closeErrorPopup(): void {
+    this.isPopupErrorVisible = false;
+  }
 
   update(): void {}
 
@@ -143,28 +150,5 @@ export class StudentsComponent {
         this.students.splice(i, 1);
       }
     }
-  }
-
-  public searchStudent(value: string): boolean {
-    if (this.searchString === "") {
-      return false;
-    }
-    return RegExp(this.searchString.toLowerCase()).test(value.toLowerCase());
-  }
-
-  public sort(property: string, order: string): void {
-    this.students.sort(this.compare(property, order));
-  }
-
-  private compare(property: string, order: string): any {
-    return (a: any, b: any) => {
-      if (a[property] > b[property]) {
-        return 1 * ((order === "asc") ? 1 : -1);
-      }
-      if (a[property] < b[property]) {
-        return -1 * ((order === "asc") ? 1 : -1);
-      }
-      return 0;
-    };
   }
 }

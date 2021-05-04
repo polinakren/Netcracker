@@ -30,37 +30,37 @@
     <tr *ngFor="let student of students">
       <td
         [class.selected] = "student === selectedStudent"
-        (click)="selectedStudent = student"
+        (click)="selectedStudent = student; checkSelected()"
         [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
         [class.found-student] = "checkData(student, studentName.value)">
         {{student.id}}
       </td>
       <td [class.selected] = "student === selectedStudent"
-          (click)="selectedStudent = student"
+          (click)="selectedStudent = student; checkSelected()"
           [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
           [class.found-student] = "checkData(student, studentName.value)">
         {{student.surname}}
       </td>
       <td [class.selected] = "student === selectedStudent"
-          (click)="selectedStudent = student"
+          (click)="selectedStudent = student; checkSelected()"
           [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
           [class.found-student] = "checkData(student, studentName.value)">
         {{student.firstName}}
       </td>
       <td [class.selected] = "student === selectedStudent"
-          (click)="selectedStudent = student"
+          (click)="selectedStudent = student; checkSelected()"
           [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
           [class.found-student] = "checkData(student, studentName.value)">
         {{student.secondName}}
       </td>
       <td [class.selected] = "student === selectedStudent"
-          (click)="selectedStudent = student"
+          (click)="selectedStudent = student; checkSelected()"
           [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
           [class.found-student] = "checkData(student, studentName.value)">
         {{student.date | date:'dd.MM.yyyy'}}
       </td>
       <td [class.selected] = "student === selectedStudent"
-          (click)="selectedStudent = student"
+          (click)="selectedStudent = student; checkSelected()"
           [class.average-mark] = "student.avgMark < 3 && checkAvgMark"
           [class.found-student] = "checkData(student, studentName.value)">
         {{student.avgMark}}
@@ -105,6 +105,15 @@
       <div class="popup-buttons">
         <button (click)="closePopup(true)">Да</button>
         <button (click)="closePopup(false)">Нет</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup" *ngIf="isPopupErrorVisible">
+    <div class="popup-message">
+      <span>Выберите, пожалуйста, студента для редактирования.</span>
+      <div class="popup-buttons">
+        <button (click)="closeErrorPopup()">Хорошо</button>
       </div>
     </div>
   </div>
